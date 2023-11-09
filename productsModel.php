@@ -27,5 +27,25 @@ class productsModel {
         return $food;
     }
 
-    // Aquí puedes agregar más métodos para realizar operaciones específicas con la tabla "food".
+    public function getCompanies() {
+        $companies = [];
+        $sql = "SELECT DISTINCT company FROM food"; // Utilizamos DISTINCT para obtener compañías únicas
+        $registros = mysqli_query($this->conexion, $sql);
+        while ($row = mysqli_fetch_assoc($registros)) {
+            array_push($companies, $row['company']);
+        }
+        return $companies;
+    }
+    public function getItemsByCaloriesDescending() {
+        $itemsData = [];
+        $sql = "SELECT Company, Item, Calories FROM food ORDER BY Calories DESC";
+
+        $registros = mysqli_query($this->conexion, $sql);
+
+        while ($row = mysqli_fetch_assoc($registros)) {
+            array_push($itemsData, $row);
+        }
+
+        return $itemsData;
+    }
 }
