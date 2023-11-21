@@ -1,5 +1,5 @@
 <?php
-require 'productsModel.php';
+require '../model/productsModel.php';
 
 $productsModel = new productsModel();
 
@@ -13,4 +13,3 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo $responseJSON;
         break;
 }
-

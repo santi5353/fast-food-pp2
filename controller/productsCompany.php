@@ -1,7 +1,7 @@
 <?php
 
 
-require 'productsModel.php';
+require '../model/productsModel.php';
 
 $productsModel = new productsModel();
 
